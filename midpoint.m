@@ -23,7 +23,7 @@ function results = midpoint(n_values)
 
         % While in the interval [1, 6], find f(a+b)/2 * deltax 
         % for each subinterval. Add to the total sum. 
-        while b <= 6
+        while b <= endInt
             b = a + deltax; 
             sum = sum + f((a+b)/2)*deltax; 
             a = b; 
