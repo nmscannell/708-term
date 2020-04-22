@@ -10,12 +10,12 @@
 % Output: array of results for each N value
 
 function results = monte_carlo(n_values)
+    f = @(x) 2 + sin((2*sqrt(x)));
     results = zeros(size(n_values));
     for i=1:length(n_values)
         sum = 0;
         for j=1:n_values(i)
-            x = 5*rand + 1;
-            sum = sum + f(x);
+            sum = sum + f(5*rand + 1);
         end
         sum = sum/n_values(i);
         results(i) = sum * 5;
