@@ -11,9 +11,9 @@ function results = midpoint(n_values)
     % The end of the interval 
     endInt = 6;
     % The number of N values in the array 
-    numN = size(n_values,2);
+    numN = length(n_values);
     % Declare array for results 
-    results = zeros(1, numN);
+    results = zeros(size(n_values));
 
     % For each N in the n_values array, calculate integral 
     for i=1:(numN)

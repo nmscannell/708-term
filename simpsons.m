@@ -9,9 +9,9 @@ function results = simpsons(n_values)
     % The function to compute the integral for 
     f = @(x) 2 + sin((2*sqrt(x)));
     % The number of N values in the array 
-    numN = size(n_values,2);
+    numN = length(n_values);
     % Declare array for results 
-    results = zeros(1, numN);
+    results = zeros(size(n_values));
     
     % For each N in the n_values array, calculate approximate integral 
     for i=1:(numN) 
