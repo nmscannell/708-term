@@ -14,24 +14,24 @@ mtcE = FindErrors(mtc);
 % Plot outputs for integral approximations 
 
 % All on one graph, entire interval  
-title = 'All Methods'; 
-plotOverInterval(mpt, tpd, sps, mtc, title, 0, 4000, N);
+title = 'Approximation - All Methods'; 
+plotOverInterval(mpt, tpd, sps, mtc, title, 0, 4000, N, 'Approximation Value');
 
 % All on one graph, from 10 to 200 
-title = 'All Methods - from 10 to 200';
-plotOverInterval(mpt, tpd, sps, mtc, title, 10, 200, N);
+title = 'Approximation - All Methods - from 10 to 200';
+plotOverInterval(mpt, tpd, sps, mtc, title, 10, 200, N, 'Approximation Value');
 
 % All on one graph, from 10 to 100 
-title = 'All Methods - from 10 to 100';
-plotOverInterval(mpt, tpd, sps, mtc, title, 10, 100, N);
+title = 'Approximation - All Methods - from 10 to 100';
+plotOverInterval(mpt, tpd, sps, mtc, title, 10, 100, N, 'Approximation Value');
 
 % Plot results, separate subplots, all in one figure 
-title = 'All Methods';
+title = 'Approximation - All Methods';
 plotSubplots(mpt, tpd, sps, mtc, title, N);
 
 % Plot errors - all on one graph 
 title = 'Error - All Methods';
-plotOverInterval(mptE, tpdE, spsE, mtcE, title, 0, 4000, N);
+plotOverInterval(mptE, tpdE, spsE, mtcE, title, 0, 4000, N, 'Error');
 
 % Plot errors, each method in separate subplot
 title = 'Error - All Methods';
@@ -47,7 +47,7 @@ function error = FindErrors(approxSol)
     end
 end
 
-function plotOverInterval(mpt, tpd, sps, mtc, t, a, b, N)
+function plotOverInterval(mpt, tpd, sps, mtc, t, a, b, N, label)
     figure()
     plot(N, mpt, 'b'); % blue 
     hold on
@@ -59,14 +59,14 @@ function plotOverInterval(mpt, tpd, sps, mtc, t, a, b, N)
     hold off
     title(t);
     xlabel('Values of N');
-    ylabel('Approximation Value');
+    ylabel(label);
     legend('Midpoint', 'Trapezoid', 'Simpsons', 'Monte Carlo');
     xlim([a b]);
 end
 
 function plotSubplots(mpt, tpd, sps, mtc, t, N)
     figure()
-    title(t);
+    sgtitle(t);
     subplot(2, 2, 1);
     plot(N, mpt, 'b');
     title('Midpoint');
